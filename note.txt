@@ -1,0 +1,6 @@
+Skema pembuatan Id
+- Role : Manual
+- Store : UUID
+- Member : Manual(Nomor identitas/ktp karyawan / Nomor pokok karyawan)
+- Login history : UUID
+- Account : UUID
