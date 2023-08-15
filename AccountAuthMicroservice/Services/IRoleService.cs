@@ -1,4 +1,4 @@
-﻿using AccountAuthMicroservice.Entities;
+﻿using AccountAuthMicroservice.Models;
 using AccountAuthMicroservice.ViewModels;
 using AccountAuthMicroservice.ViewModels.Request;
 

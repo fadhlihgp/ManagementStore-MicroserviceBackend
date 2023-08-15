@@ -1,6 +1,5 @@
-﻿using AccountAuthMicroservice.Entities;
+﻿using AccountAuthMicroservice.Models;
 using AccountAuthMicroservice.Exceptions;
-using AccountAuthMicroservice.Repositories;
 using AccountAuthMicroservice.Repositories.Interface;
 using AccountAuthMicroservice.Security;
 using AccountAuthMicroservice.ViewModels.Request;

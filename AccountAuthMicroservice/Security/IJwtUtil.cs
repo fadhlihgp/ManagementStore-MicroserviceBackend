@@ -1,4 +1,4 @@
-﻿using AccountAuthMicroservice.Entities;
+﻿using AccountAuthMicroservice.Models;
 
 namespace AccountAuthMicroservice.Security;
 

@@ -4,3 +4,4 @@ Skema pembuatan Id
 - Member : Manual(Nomor identitas/ktp karyawan / Nomor pokok karyawan)
 - Login history : UUID
 - Account : UUID
+- Customer : UUID

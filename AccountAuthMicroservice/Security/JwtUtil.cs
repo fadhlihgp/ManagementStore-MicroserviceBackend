@@ -1,7 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using AccountAuthMicroservice.Entities;
+using AccountAuthMicroservice.Models;
 using Microsoft.IdentityModel.Tokens;
 
 namespace AccountAuthMicroservice.Security;

@@ -1,4 +1,4 @@
-﻿using AccountAuthMicroservice.Config;
+﻿using AccountAuthMicroservice.Context;
 using AccountAuthMicroservice.Repositories.Interface;
 
 namespace AccountAuthMicroservice.Repositories;

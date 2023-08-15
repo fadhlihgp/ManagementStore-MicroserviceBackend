@@ -1,4 +1,5 @@
 using AccountAuthMicroservice.Config;
+using AccountAuthMicroservice.Context;
 using AccountAuthMicroservice.Middlewares;
 using AccountAuthMicroservice.Repositories;
 using AccountAuthMicroservice.Repositories.Interface;
@@ -95,21 +96,4 @@ app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.MapControllers();
 
 //Tambahkan auto migration disini
-ApplyMigration();
 app.Run();
-
-// ===================== Auto update setelah migration =================
-void ApplyMigration()
-{
-    using (var scope = app.Services.CreateScope())
-    {
-        var _db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-        if (_db.Database.GetPendingMigrations().Count() > 0)
-        {
-            _db.Database.Migrate();
-        }
-        {
-            
-        }
-    }
-}
