@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{9201
 		note.txt = note.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerMicroservice", "CustomerMicroservice\CustomerMicroservice.csproj", "{CE4CEB95-D24C-4C55-A78E-ECA669945906}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,8 +19,13 @@ Global
 		{0FEB3C68-E2A1-476A-9D1C-3DBB8E69B857}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FEB3C68-E2A1-476A-9D1C-3DBB8E69B857}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FEB3C68-E2A1-476A-9D1C-3DBB8E69B857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE4CEB95-D24C-4C55-A78E-ECA669945906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE4CEB95-D24C-4C55-A78E-ECA669945906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE4CEB95-D24C-4C55-A78E-ECA669945906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE4CEB95-D24C-4C55-A78E-ECA669945906}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0FEB3C68-E2A1-476A-9D1C-3DBB8E69B857} = {920160ED-8AED-489B-922A-6A493AAA94B5}
+		{CE4CEB95-D24C-4C55-A78E-ECA669945906} = {920160ED-8AED-489B-922A-6A493AAA94B5}
 	EndGlobalSection
 EndGlobal
