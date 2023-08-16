@@ -1,4 +1,5 @@
-﻿using AccountAuthMicroservice.Models;
+﻿using AccountAuthMicroservice.Config;
+using AccountAuthMicroservice.Models;
 using AccountAuthMicroservice.Exceptions;
 using AccountAuthMicroservice.Repositories.Interface;
 using AccountAuthMicroservice.Security;
@@ -77,7 +78,7 @@ public class AuthService : IAuthService
         }
     }
 
-    // ================== Method Register akun admin =====================
+    // ================== Method Register akun =====================
     public async Task RegisterAccount(RegisterAccountRequestDto accountRequestDto, string roleId, string storeId)
     {
         // Role yang bisa membuat admin adalah Owner dan SuperAdmin
@@ -100,7 +101,7 @@ public class AuthService : IAuthService
             Email = accountRequestDto.Email,
             Password = BCrypt.Net.BCrypt.HashPassword(accountRequestDto.Password),
             NoHp = accountRequestDto.NoHp,
-            RoleId = "3",
+            RoleId = accountRequestDto.RoleId,
             MemberId = member.Id,
             Member = member,
             IsActive = true

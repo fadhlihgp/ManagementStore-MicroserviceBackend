@@ -25,7 +25,7 @@ public partial class Product
 
     public string Unit { get; set; } = null!;
 
-    public byte IsDeleted { get; set; }
+    public bool IsDeleted { get; set; }
 
     public string StoreId { get; set; } = null!;
 

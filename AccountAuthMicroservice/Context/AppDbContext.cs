@@ -66,6 +66,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.NoHp).HasMaxLength(50);
             entity.Property(e => e.RoleId).HasMaxLength(50);
             entity.Property(e => e.UserName).HasMaxLength(50);
+            entity.Property(e => e.IsActive).HasColumnType("bit");
 
             entity.HasOne(d => d.Member).WithMany(p => p.Accounts)
                 .HasForeignKey(d => d.MemberId)
@@ -86,6 +87,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.NoHp).HasMaxLength(50);
             entity.Property(e => e.StoreId).HasMaxLength(50);
+            entity.Property(e => e.IsDeleted).HasColumnType("bit");
 
             entity.HasOne(d => d.Store).WithMany(p => p.Customers)
                 .HasForeignKey(d => d.StoreId)
@@ -103,6 +105,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.CustomerId).HasMaxLength(50);
             entity.Property(e => e.Date).HasColumnType("datetime2");
             entity.Property(e => e.StoreId).HasMaxLength(50);
+            entity.Property(e => e.IsPaid).HasColumnType("bit");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Debts)
                 .HasForeignKey(d => d.CustomerId)
@@ -148,6 +151,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.CustomerId).HasMaxLength(50);
             entity.Property(e => e.Date).HasColumnType("datetime2");
             entity.Property(e => e.StoreId).HasMaxLength(50);
+            entity.Property(e => e.IsDelivered).HasColumnType("bit");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Deliveries)
                 .HasForeignKey(d => d.CustomerId)
@@ -276,6 +280,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.StoreId).HasMaxLength(50);
             entity.Property(e => e.Unit).HasMaxLength(50);
+            entity.Property(e => e.IsDeleted).HasColumnType("bit");
 
             entity.HasOne(d => d.CreatedAccount).WithMany(p => p.ProductCreatedAccounts)
                 .HasForeignKey(d => d.CreatedAccountId)

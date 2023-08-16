@@ -11,7 +11,7 @@ public partial class Delivery
 
     public string CustomerId { get; set; } = null!;
 
-    public byte IsDelivered { get; set; }
+    public bool IsDelivered { get; set; }
 
     public string StoreId { get; set; } = null!;
 
