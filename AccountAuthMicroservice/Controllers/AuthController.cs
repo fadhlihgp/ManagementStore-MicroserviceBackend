@@ -46,7 +46,7 @@ public class AuthController : ControllerBase
 
     [Authorize]
     [HttpPost]
-    [Route("register-admin")]
+    [Route("register-member")]
     public async Task<IActionResult> RegisterAdmin([FromBody] RegisterAccountRequestDto requestDto)
     {
         var roleId = User.FindFirst("RoleId")?.Value;

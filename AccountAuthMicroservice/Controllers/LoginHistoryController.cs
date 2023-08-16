@@ -7,7 +7,7 @@ namespace AccountAuthMicroservice.Controllers;
 
 [ApiController]
 [Authorize]
-[Route("api/loginhistory")]
+[Route("api/account/loginhistory")]
 public class LoginHistoryController : ControllerBase
 {
     private ILoginHistoryService _loginHistoryService;

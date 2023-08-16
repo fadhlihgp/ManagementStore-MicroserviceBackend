@@ -13,7 +13,7 @@ public partial class Customer
 
     public string Address { get; set; } = null!;
 
-    public byte IsDeleted { get; set; }
+    public bool IsDeleted { get; set; }
 
     public string StoreId { get; set; } = null!;
 

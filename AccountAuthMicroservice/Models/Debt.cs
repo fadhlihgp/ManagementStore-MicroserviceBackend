@@ -11,7 +11,7 @@ public partial class Debt
 
     public string CustomerId { get; set; } = null!;
 
-    public byte IsPaid { get; set; }
+    public bool IsPaid { get; set; }
 
     public string StoreId { get; set; } = null!;
 

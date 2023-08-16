@@ -1,6 +1,6 @@
-﻿using AccountAuthMicroservice.Models;
+﻿using AccountAuthMicroservice.Config;
+using AccountAuthMicroservice.Models;
 using AccountAuthMicroservice.Exceptions;
-using AccountAuthMicroservice.Repositories;
 using AccountAuthMicroservice.Repositories.Interface;
 using AccountAuthMicroservice.ViewModels.Request;
 using AccountAuthMicroservice.ViewModels.Response;
@@ -36,7 +36,7 @@ public class StoreService : IStoreService
         if (roleId.Equals("3")) throw new UnauthorizedException("Akses ditolak");
         
         var findById = await _storeRepository.FindById(storeRequestDto.Id);
-        if (findById == null) throw new NotFoundException("Toko tidak ditemukan");
+        if (findById == null) throw new NotFoundException("Akses ditolak");
         try
         {
             await _persistence.BeginTransactionAsync();
@@ -66,7 +66,7 @@ public class StoreService : IStoreService
     public async Task<StoreResponseDto> FindStoreById(string storeId)
     {
         var store = await _storeRepository.FindById(storeId);
-        if (store == null) throw new NotFoundException("Data toko tidak ditemukan");
+        if (store == null) throw new NotFoundException("Data tidak ditemukan");
         return _mapper.Map<StoreResponseDto>(store);
     }
 }

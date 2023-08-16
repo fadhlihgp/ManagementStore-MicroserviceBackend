@@ -1,4 +1,5 @@
-﻿using AccountAuthMicroservice.Models;
+﻿using AccountAuthMicroservice.Config;
+using AccountAuthMicroservice.Models;
 using AccountAuthMicroservice.Exceptions;
 using AccountAuthMicroservice.Repositories;
 using AccountAuthMicroservice.Repositories.Interface;
@@ -63,7 +64,7 @@ public class RoleService : IRoleService
     public async Task<RoleRequestDto> FindRoleById(string id)
     {
         var role = await _roleRepository.FindById(id);
-        if (role == null) throw new NotFoundException("Data role tidak ditemukan");
+        if (role == null) throw new NotFoundException("Data tidak ditemukan");
         return new RoleRequestDto
         {
             Id = role.Id,
