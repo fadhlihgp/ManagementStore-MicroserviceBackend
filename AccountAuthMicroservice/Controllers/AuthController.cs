@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AccountAuthMicroservice.Controllers;
 
 [ApiController]
-[Route("/api/account")]
+[Route("/api/account/auth")]
 public class AuthController : ControllerBase
 {
     private IAuthService _authService;
@@ -18,7 +18,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost]
-    [Route("auth/register-store")]
+    [Route("register-store")]
     public async Task<IActionResult> RegisterStore([FromBody] RegisterStoreRequestDto requestDto)
     {
         await _authService.RegisterStore(requestDto);
@@ -42,23 +42,5 @@ public class AuthController : ControllerBase
             Data = await _authService.Login(requestDto)
         };
         return Ok(result);
-    }
-
-    [Authorize]
-    [HttpPost]
-    [Route("register-member")]
-    public async Task<IActionResult> RegisterAdmin([FromBody] RegisterAccountRequestDto requestDto)
-    {
-        var roleId = User.FindFirst("RoleId")?.Value;
-        var storeId = User.FindFirst("StoreId")?.Value;
-        await _authService.RegisterAccount(requestDto, roleId, storeId);
-        
-        ResultResponseDto result = new ResultResponseDto
-        {
-            StatusCode = 201,
-            Message = "Berhasil membuat akun",
-            Data = null
-        };
-        return Created("api/account/auth/register-admin", result);
     }
 }

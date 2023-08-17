@@ -122,7 +122,8 @@ public class AccountService : IAccountService
     public async Task CreateAccount(string roleId, AccountRequestDto create)
     {
         if (roleId.Equals("3")) throw new UnauthorizedException("Akses ditolak");
-
+        var find = await _repository.Find(e => e.Email.Equals(create.Email));
+        if (find != null) throw new UnauthorizedException("Email sudah terdaftar");
         var account = new Account
         {
             Id = Guid.NewGuid().ToString(),
