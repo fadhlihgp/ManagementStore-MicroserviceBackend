@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ySKa0D5jHNMHDeBOLAkxOkcKavCWU4kg8BJz02mI+vg=",
+  "Source": "ExpenseMicroservice",
+  "BasePath": "_content/ExpenseMicroservice",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
