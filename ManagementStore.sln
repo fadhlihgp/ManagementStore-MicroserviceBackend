@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerMicroservice", "Cus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseMicroservice", "ExpenseMicroservice\ExpenseMicroservice.csproj", "{2F1F12EE-2FD9-4F96-A689-B659E008B3FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductMicroservice", "ProductMicroservice\ProductMicroservice.csproj", "{3A3B81BC-1132-43BE-99BA-D24D4F0756C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +31,15 @@ Global
 		{2F1F12EE-2FD9-4F96-A689-B659E008B3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F1F12EE-2FD9-4F96-A689-B659E008B3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F1F12EE-2FD9-4F96-A689-B659E008B3FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A3B81BC-1132-43BE-99BA-D24D4F0756C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A3B81BC-1132-43BE-99BA-D24D4F0756C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A3B81BC-1132-43BE-99BA-D24D4F0756C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A3B81BC-1132-43BE-99BA-D24D4F0756C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0FEB3C68-E2A1-476A-9D1C-3DBB8E69B857} = {920160ED-8AED-489B-922A-6A493AAA94B5}
 		{CE4CEB95-D24C-4C55-A78E-ECA669945906} = {920160ED-8AED-489B-922A-6A493AAA94B5}
 		{2F1F12EE-2FD9-4F96-A689-B659E008B3FB} = {920160ED-8AED-489B-922A-6A493AAA94B5}
+		{3A3B81BC-1132-43BE-99BA-D24D4F0756C0} = {920160ED-8AED-489B-922A-6A493AAA94B5}
 	EndGlobalSection
 EndGlobal
