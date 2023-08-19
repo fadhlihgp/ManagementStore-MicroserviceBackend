@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IFIElbJiGfGv0ZP4YuvhivYaBGXwenMy0aiWRILaeP1l0ED6cKGAcISoFij6M4eiz3QuFnlfhbwssuRckFcsxg==",
+  "dgSpecHash": "ADLxkRHUgB+H4jqMmMpLEg74uT6N3Lme4Ev8gsVpZTKZHDUB61koQuqv6tjaQASKqLy+FBKR4SpQ9Om7Wf8wLw==",
   "success": true,
   "projectFilePath": "D:\\UpSkill\\.Net\\Api Portofolio\\ManagementStore\\CustomerMicroservice\\CustomerMicroservice.csproj",
   "expectedPackageFiles": [
@@ -48,6 +48,7 @@
     "C:\\Users\\fadhl\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\fadhl\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\fadhl\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\fadhl\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\fadhl\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\fadhl\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\fadhl\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

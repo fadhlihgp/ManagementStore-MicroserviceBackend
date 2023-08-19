@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "YVEp/2EmLr0diyPSJGLHGrBquS3R+5CIUiEBPhHloTM=",
+  "Source": "PurchaseMicroservice",
+  "BasePath": "_content/PurchaseMicroservice",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -78,3 +78,4 @@ D:\UpSkill\.Net\Api Portofolio\ManagementStore\AccountAuthMicroservice\obj\Debug
 D:\UpSkill\.Net\Api Portofolio\ManagementStore\AccountAuthMicroservice\obj\Debug\net7.0\AccountAuthMicroservice.genruntimeconfig.cache
 D:\UpSkill\.Net\Api Portofolio\ManagementStore\AccountAuthMicroservice\obj\Debug\net7.0\ref\AccountAuthMicroservice.dll
 D:\UpSkill\.Net\Api Portofolio\ManagementStore\AccountAuthMicroservice\bin\Debug\net7.0\BCrypt.Net-Next.dll
+D:\UpSkill\.Net\Api Portofolio\ManagementStore\AccountAuthMicroservice\bin\Debug\net7.0\Newtonsoft.Json.dll
