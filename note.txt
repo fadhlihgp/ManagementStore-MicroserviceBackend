@@ -5,3 +5,4 @@ Skema pembuatan Id
 - Login history : UUID
 - Account : UUID
 - Customer : UUID
+- Purchase : TR-(purchaseTypeId + randomNo(99) + date<ddMMyy>)
