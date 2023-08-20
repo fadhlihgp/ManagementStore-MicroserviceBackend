@@ -173,9 +173,21 @@ public class ProductRepository : IProductRepository
         var product = await _context.Products.FirstOrDefaultAsync(p => p.Id.Equals(addReduceStock.ProductId));
         if (product == null) throw new NotFoundException(DataProperties.NotFoundMessage);
         if (product.Stock < addReduceStock.Stock) throw new BadRequestException("Gagal mengubah data, stok anda minus");
+
+        try
+        {
+            await _context.Database.BeginTransactionAsync();
+            
+            product.Stock -= addReduceStock.Stock;
+            _context.Products.Update(product);
+            await _context.Database.CommitTransactionAsync();
+            await _context.SaveChangesAsync();
+            
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
         
-        product.Stock -= addReduceStock.Stock;
-        _context.Products.Update(product);
-        await _context.SaveChangesAsync();
     }
 }

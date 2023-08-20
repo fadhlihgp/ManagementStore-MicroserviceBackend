@@ -1,6 +1,7 @@
 ﻿using AccountAuthMicroservice.Services;
 using AccountAuthMicroservice.ViewModels.Request;
 using AccountAuthMicroservice.ViewModels.Response;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccountAuthMicroservice.Controllers;
@@ -18,6 +19,7 @@ public class StoreController : ControllerBase
 
     [HttpPut]
     [Route("update")]
+    [Authorize]
     public async Task<IActionResult> UpdateStore([FromBody] StoreRequestDto storeRequestDto)
     {
         var roleId = User.FindFirst("RoleId")?.Value;

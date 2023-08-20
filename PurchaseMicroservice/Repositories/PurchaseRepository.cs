@@ -57,9 +57,10 @@ public class PurchaseRepository : IPurchaseRepository
                     Stock = request.Quantity
                 });
             }
-
+            
             await _context.Database.CommitTransactionAsync();
             await _context.SaveChangesAsync();
+            
         }
         catch (Exception e)
         {

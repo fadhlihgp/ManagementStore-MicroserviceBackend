@@ -77,3 +77,4 @@ D:\UpSkill\.Net\Api Portofolio\ManagementStore\CustomerMicroservice\obj\Debug\ne
 D:\UpSkill\.Net\Api Portofolio\ManagementStore\CustomerMicroservice\obj\Debug\net7.0\CustomerMicroservice.pdb
 D:\UpSkill\.Net\Api Portofolio\ManagementStore\CustomerMicroservice\obj\Debug\net7.0\CustomerMicroservice.genruntimeconfig.cache
 D:\UpSkill\.Net\Api Portofolio\ManagementStore\CustomerMicroservice\obj\Debug\net7.0\ref\CustomerMicroservice.dll
+D:\UpSkill\.Net\Api Portofolio\ManagementStore\CustomerMicroservice\bin\Debug\net7.0\Newtonsoft.Json.dll

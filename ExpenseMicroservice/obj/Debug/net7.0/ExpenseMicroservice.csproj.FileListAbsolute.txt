@@ -77,3 +77,4 @@ D:\UpSkill\.Net\Api Portofolio\ManagementStore\ExpenseMicroservice\obj\Debug\net
 D:\UpSkill\.Net\Api Portofolio\ManagementStore\ExpenseMicroservice\obj\Debug\net7.0\ExpenseMicroservice.pdb
 D:\UpSkill\.Net\Api Portofolio\ManagementStore\ExpenseMicroservice\obj\Debug\net7.0\ExpenseMicroservice.genruntimeconfig.cache
 D:\UpSkill\.Net\Api Portofolio\ManagementStore\ExpenseMicroservice\obj\Debug\net7.0\ref\ExpenseMicroservice.dll
+D:\UpSkill\.Net\Api Portofolio\ManagementStore\ExpenseMicroservice\bin\Debug\net7.0\Newtonsoft.Json.dll

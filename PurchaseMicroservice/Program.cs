@@ -66,6 +66,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
 builder.Services.AddTransient<IPurchaseRepository, PurchaseRepository>();
 builder.Services.AddTransient<IProductService, ProductService>();
+builder.Services.AddTransient<IBaseService, BaseService>();
 #endregion
 
 ApiUrl.ProductUrl = builder.Configuration["ApiUrls:ProductApi"];
