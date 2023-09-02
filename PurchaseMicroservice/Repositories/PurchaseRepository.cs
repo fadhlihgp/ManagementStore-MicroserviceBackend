@@ -23,11 +23,10 @@ public class PurchaseRepository : IPurchaseRepository
     {
         if (!roleId.Equals("3")) throw new UnauthorizedException(DataProperties.UnauthorizedMessage);
         Random random = new Random();
-        int randomNum = random.Next(99);
-        
+        int randomNum = random.Next(999);
         var purchase = new Purchase
         {
-            Id = "TR-" + purchaseTypeId + randomNum + DateTime.Now.ToString("ddMMyy"),
+            Id = "TR" + purchaseTypeId + "-" + randomNum + DateTime.Now.ToString("ddMMyy"),
             Date = DateTime.Now,
             PurchaseTypeId = purchaseTypeId,
             Money = requestDto.Money,

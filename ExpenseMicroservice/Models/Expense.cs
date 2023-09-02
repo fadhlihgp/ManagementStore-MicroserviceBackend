@@ -8,7 +8,7 @@ public partial class Expense
 
     public string StoreId { get; set; } = null!;
 
-    public virtual ICollection<ExpenseDetail> ExpenseDetails { get; set; } = new List<ExpenseDetail>();
+    public virtual IEnumerable<ExpenseDetail>? ExpenseDetails { get; set; }
 
     public virtual Store Store { get; set; } = null!;
 }

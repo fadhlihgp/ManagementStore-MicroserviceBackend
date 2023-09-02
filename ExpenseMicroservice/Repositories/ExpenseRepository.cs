@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Diagnostics.Metrics;
+using AccountAuthMicroservice.Exceptions;
 using ExpenseMicroservice.Context;
 using ExpenseMicroservice.Models;
 using ExpenseMicroservice.ViewModels;
@@ -28,6 +30,56 @@ public class ExpenseRepository : IExpenseRepository
         }
     }
 
+    // ===================== Method membuat New Expense =====================
+    public async Task CreateNewExpense(string storeId, ExpenseCreateRequestDto requestDto)
+    {
+        
+        // 1. Validasi apakah data Expense di bulan dan tahun yang sama ada atau tidak, Jika ada maka gagal
+        var findExpense = await _context.Expenses.FirstOrDefaultAsync(e =>
+            e.StoreId.Equals(storeId) && e.Date.Month.Equals(requestDto.Month) && e.Date.Year.Equals(requestDto.Year));
+        if (findExpense != null)
+            throw new BadRequestException("Tidak boleh ada data pengeluaran di bulan dan tahun yang sama");
+        
+        // 2. Setelah lolos validasi maka akan assign dto ke obejct 
+        Expense saveExpense = new Expense
+        {
+            Id = $"EX{requestDto.Month}{requestDto.Year}-{storeId}",
+            Date = new DateTime(requestDto.Year, requestDto.Month, 1),
+            StoreId = storeId
+        };
+        saveExpense.ExpenseDetails =  requestDto.ExpenseDetails.Select((ed, Index) => new ExpenseDetail
+        {
+            Id = $"EXD{requestDto.Month}{requestDto.Year}{Index + 1}-{storeId}",
+            Name = ed.Name,
+            Description = ed.Description,
+            Price = ed.Price,
+            Date = new DateTime(),
+            ExpenseId = saveExpense.Id,
+        }).ToList();
+
+        // 3. Save data ke database
+        try
+        {
+            await _context.Database.BeginTransactionAsync();
+            await _context.Expenses.AddAsync(saveExpense);
+            await _context.SaveChangesAsync();
+            await _context.Database.CommitTransactionAsync();
+        }
+        catch (Exception e)
+        {
+            await _context.Database.RollbackTransactionAsync();
+            throw new Exception(e.Message);
+        }
+    }
+
+    public async Task<Expense> FindExpenseById(string expenseId)
+    {
+        var expense = await _context.Expenses
+            .Include(e => e.ExpenseDetails)
+            .FirstOrDefaultAsync(e => e.Id.Equals(expenseId));
+        return expense;
+    }
+
     public async Task<IEnumerable<ExpenseResponseDto>> ListExpenses(string storeId)
     {
         IEnumerable<Expense> expenses = await _context.Expenses
@@ -52,18 +104,5 @@ public class ExpenseRepository : IExpenseRepository
             .FirstOrDefaultAsync(e => e.StoreId.Equals(storeId) && e.Date.Month.Equals(month) && e.Date.Year.Equals(year));
 
         return expense;
-        // decimal total = 0;
-        // foreach (var expenseExpenseDetail in expense.ExpenseDetails)
-        // {
-        //     total = expense.ExpenseDetails.Where(e => e.ExpenseId.Equals(expenseExpenseDetail.Id))
-        //         .Sum(e => e.Price);
-        // }
-        //
-        // return new ExpenseResponseDto
-        // {
-        //     Id = expense.Id,
-        //     Date = expense.Date.ToString("MMMM yyyy"),
-        //     TotalExpense = total
-        // };
     }
 }

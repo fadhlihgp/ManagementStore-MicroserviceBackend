@@ -1,4 +1,5 @@
 ﻿using ExpenseMicroservice.Repositories;
+using ExpenseMicroservice.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +27,18 @@ public class ExpenseController : ControllerBase
             StatusCode = 200,
             Message = "Berhasil mendapatkan data",
             Data = await _expenseRepository.ListExpenses(storeId)
+        });
+    }
+
+    [HttpPost, Route("new")]
+    public async Task<IActionResult> CreateNewExpense([FromBody] ExpenseCreateRequestDto requestDto)
+    {
+        var storeId = User.FindFirst("StoreId")?.Value;
+        await _expenseRepository.CreateNewExpense(storeId, requestDto);
+        return Created("api/expense/new", new
+        {
+            StatusCode = 201,
+            Message = "Berhasil menyimpan data"
         });
     }
 }

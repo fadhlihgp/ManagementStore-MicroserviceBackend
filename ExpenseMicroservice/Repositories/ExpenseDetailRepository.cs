@@ -19,56 +19,30 @@ public class ExpenseDetailRepository : IExpenseDetailRepository
     }
 
     // ======================= Method untuk membuat expense detail =======================
-    public async Task CreateExpenseDetail(string storeId, ExpenseDetailRequestDto requestDto)
+    public async Task CreateExpenseDetail(ExpenseDetailCreateDto requestDto)
     {
-        var findExpenseByMonthYear = await _expenseRepository.FindExpenseByMonthYear(storeId, requestDto.Month, requestDto.year);
+        var findExpenseById = await _expenseRepository.FindExpenseById(requestDto.ExpenseId);
+        if (findExpenseById == null)
+            throw new NotFoundException("Data pengeluaran tidak ditemukan");
 
+        int count = findExpenseById.ExpenseDetails.Count();
         try
         {
             await _appDbContext.Database.BeginTransactionAsync();
 
-            // Jika expense kosong, maka akan dibuatkan dulu expense nya, baru expense detail nya
-            if (findExpenseByMonthYear == null)
+            ExpenseDetail expenseDetail = new ExpenseDetail
             {
-                Expense expense = new Expense
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Date = new DateTime(requestDto.year, requestDto.Month, 1),
-                    StoreId = storeId
-                };
+                Id = $"EXD{findExpenseById.Date.Month}{findExpenseById.Date.Year}{count + 1}-{findExpenseById.StoreId}",
+                Name = requestDto.Name,
+                Description = requestDto.Description,
+                Price = requestDto.Price,
+                Date = new DateTime(),
+                ExpenseId = requestDto.ExpenseId
+            };
 
-                ExpenseDetail expenseDetail = new ExpenseDetail
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Name = requestDto.Name,
-                    Description = requestDto.Description,
-                    Price = requestDto.Price,
-                    Date = DateTime.Today,
-                    ExpenseId = expense.Id,
-                    Expense = expense
-                };
-
-                await _appDbContext.AddAsync(expenseDetail);
-                await _appDbContext.Database.CommitTransactionAsync();
-                await _appDbContext.SaveChangesAsync();
-            }
-            else
-            {
-                
-                ExpenseDetail expenseDetail = new ExpenseDetail
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Name = requestDto.Name,
-                    Description = requestDto.Description,
-                    Price = requestDto.Price,
-                    Date = DateTime.Today,
-                    ExpenseId = findExpenseByMonthYear.Id
-                };
-
-                await _appDbContext.AddAsync(expenseDetail);
-                await _appDbContext.Database.CommitTransactionAsync();
-                await _appDbContext.SaveChangesAsync();
-            }
+            await _appDbContext.AddAsync(expenseDetail);
+            await _appDbContext.SaveChangesAsync();
+            await _appDbContext.Database.CommitTransactionAsync();
         }
         catch (Exception e)
         {

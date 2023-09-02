@@ -20,10 +20,9 @@ public class ExpenseDetailController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateExpenseDetail([FromBody] ExpenseDetailRequestDto requestDto)
+    public async Task<IActionResult> CreateExpenseDetail([FromBody] ExpenseDetailCreateDto requestDto)
     {
-        var storeId = User.FindFirst("StoreId")?.Value;
-        await _expenseDetailRepository.CreateExpenseDetail(storeId, requestDto);
+        await _expenseDetailRepository.CreateExpenseDetail(requestDto);
         return Created("api/expensedetail", new
         {
             StatusCode = 201,

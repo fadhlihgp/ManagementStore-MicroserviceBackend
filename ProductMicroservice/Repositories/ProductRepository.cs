@@ -172,7 +172,7 @@ public class ProductRepository : IProductRepository
     {
         var product = await _context.Products.FirstOrDefaultAsync(p => p.Id.Equals(addReduceStock.ProductId));
         if (product == null) throw new NotFoundException(DataProperties.NotFoundMessage);
-        if (product.Stock < addReduceStock.Stock) throw new BadRequestException("Gagal mengubah data, stok anda minus");
+        //if (product.Stock < addReduceStock.Stock) throw new BadRequestException("Gagal mengubah data, stok anda minus");
 
         try
         {
@@ -190,4 +190,5 @@ public class ProductRepository : IProductRepository
         }
         
     }
+    
 }
