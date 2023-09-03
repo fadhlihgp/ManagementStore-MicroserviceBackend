@@ -26,10 +26,10 @@ public class DebtDetailController : ControllerBase
             new { StatusCode = 201, Message = DataProperties.SuccessCreateDataMessage });
     }
 
-    [HttpGet, Route("{id}")]
-    public async Task<IActionResult> ListDebtDetailByDebtId([FromRoute] string id)
+    [HttpGet, Route("{debtId}")]
+    public async Task<IActionResult> ListDebtDetailByDebtId([FromRoute] string debtId)
     {
-        var debtDetails = await _detailRepository.ListDebtDetailByDebtId(id);
+        var debtDetails = await _detailRepository.ListDebtDetailByDebtId(debtId);
         return Ok(new { StatusCode = 200, Message = DataProperties.SuccessGetDataMessage, Data = debtDetails });
     }
 

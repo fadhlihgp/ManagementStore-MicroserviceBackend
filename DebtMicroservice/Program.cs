@@ -64,6 +64,7 @@ ApiUrl.PurchaseUrl = builder.Configuration["ApiUrls:PurchaseApi"];
 #region =========================== Dependencies =========================
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
+builder.Services.AddTransient<IBaseService, BaseService>();
 builder.Services.AddTransient<IDebtRepository, DebtRepository>();
 builder.Services.AddTransient<IDebtDetailRepository, DebtDetailRepository>();
 builder.Services.AddTransient<IPurchaseRepository, PurchaseRepository>();

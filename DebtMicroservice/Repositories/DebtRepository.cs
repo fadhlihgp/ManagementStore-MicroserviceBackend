@@ -49,6 +49,7 @@ public class DebtRepository : IDebtRepository
             CustomerId = createDto.CustomerId,
             IsPaid = false,
             StoreId = storeId,
+            Money = 0,
             DebtDetails = createDto.DebtDetails.Select((p, Index) => new DebtDetail
             {
                 Id = $"DTL{createDto.Month}{createDto.Year}{Index + 1}-{storeId}",
@@ -94,7 +95,7 @@ public class DebtRepository : IDebtRepository
             CustomerId = d.CustomerId,
             CustomerName = d.Customer.Name,
             IsPaid = d.IsPaid,
-            Total = !d.DebtDetails.IsNullOrEmpty() ? d.DebtDetails.Sum(d => d.Price * d.Quantity) : 0,
+            Total = d.DebtDetails.Sum(d => d.Price * d.Quantity),
             DebtDetails = d.DebtDetails.Select(dd => new DebtDetailResponseDto
             {
                 Id = dd.Id,
@@ -117,7 +118,7 @@ public class DebtRepository : IDebtRepository
         var debt = await _context.Debts
             .Include(d => d.DebtDetails)
             .Include(d => d.Customer)
-            .Include("PurchaseDetails.Product")
+            .Include("DebtDetails.Product")
             .FirstOrDefaultAsync(d => d.Id.Equals(debtId));
 
         if (debt == null) throw new NotFoundException(DataProperties.NotFoundMessage);
@@ -176,7 +177,7 @@ public class DebtRepository : IDebtRepository
         var debt = await _context.Debts
             .Include(d => d.DebtDetails)
             .Include(d => d.Customer)
-            .Include("PurchaseDetails.Product")
+            .Include("DebtDetails.Product")
             .FirstOrDefaultAsync(d => d.Id.Equals(payDto.DebtId));
         
         // 2. Validasi

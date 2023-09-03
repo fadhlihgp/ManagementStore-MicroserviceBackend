@@ -21,11 +21,12 @@ public class PurchaseRepository : IPurchaseRepository
 
     public async Task CreatePurchase(string storeId, string roleId, string purchaseTypeId, PurchaseRequestDto requestDto)
     {
+        DateTime nowDate = DateTime.Now.Date;
         if (!roleId.Equals("3")) throw new UnauthorizedException(DataProperties.UnauthorizedMessage);
-        int count = _context.Purchases.Count(p => p.Date.ToString("ddMMyy").Equals(DateTime.Now.ToString("ddMMyy")) && p.StoreId.Equals(storeId));
+        int count = _context.Purchases.Count(p => p.Date.Date == nowDate && p.StoreId.Equals(storeId));
         var purchase = new Purchase
         {
-            Id = $"TR{purchaseTypeId}{DateTime.Now.ToString("MMyy")}{count + 1}-{storeId}",
+            Id = $"TR{purchaseTypeId}{DateTime.Now:ddMMyy}{count + 1}-{storeId}",
             Date = DateTime.Now,
             PurchaseTypeId = purchaseTypeId,
             Money = requestDto.Money,

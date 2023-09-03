@@ -10,7 +10,7 @@ public partial class Debt
 
     public bool IsPaid { get; set; }
     
-    public decimal Money { get; set; }
+    public decimal? Money { get; set; }
 
     public string StoreId { get; set; } = null!;
 

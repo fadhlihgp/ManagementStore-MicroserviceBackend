@@ -17,7 +17,7 @@ public class PurchaseRepository : IPurchaseRepository
         var request = new RequestDto
         {
             ApiType = ApiType.POST,
-            Url = $"{ApiUrl.PurchaseUrl}/create/{3}",
+            Url = $"{ApiUrl.PurchaseUrl}/api/purchase/create/3",
             Data = purchaseRequestDto
         };
 

@@ -71,4 +71,11 @@ public class DebtController : ControllerBase
         return Created("api/debt/new-next",
             new { StatusCode = 201, Message = DataProperties.SuccessCreateDataMessage });
     }
+
+    [HttpPut, Route("payDebt")]
+    public async Task<IActionResult> PayDet([FromBody] PayDebtDto debtDto)
+    {
+        await _debtRepository.PayDebt(debtDto);
+        return Ok(new { StatusCode = 200, Message = "Transaksi berhasil" });
+    }
 }
