@@ -13,8 +13,8 @@ Skema pembuatan (Id)
 - Role = UUID
 - Account = Manual
 - PurchaseDetail = UUID
-- PurchaseId = codeTransactionType+date(tanggal sekarang (MMyy))+(jumlah transaksi hari ini + 1)
-- DebtId = DT+Tanggal Sekarang (MMyy) + Jumlah debt by bulan dan tahun + 1
+- PurchaseId = codeTransactionType+date(tanggal sekarang (MMyy))+(jumlah transaksi hari ini + 1)-storeId
+- DebtId = DT+Tanggal Sekarang (MMyy) + Jumlah debt by bulan dan tahun + 1 - storeId
 - Debt Detail = DTL(Jumlah delivery pada debtId + 1)-DebtId
 - Delivery = DV + Tanggal Sekarang (MMyy) + Jumlah transaksi bulan ini + 1
 - Delivery Detail = DVL(Jumlah delivery pada deliveryId + 1)-DeliveryId

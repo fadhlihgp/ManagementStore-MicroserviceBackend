@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Wth+zFGQY4ARsxQ05yQXuuyhWBL2nfcRYvvPf5eOIz8=",
+  "Source": "DebtMicroservice",
+  "BasePath": "_content/DebtMicroservice",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
